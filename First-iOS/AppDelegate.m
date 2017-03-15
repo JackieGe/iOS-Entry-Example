@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SecondViewController.h"
+#import "MyWebViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,8 @@
     // Override point for customization after application launch.
     // SecondViewController *second = [ [SecondViewController alloc] init];
     // self.window.rootViewController = second;
+    // MyWebViewController *webViewController = [[MyWebViewController alloc] init];
+    // self.window.rootViewController = webViewController;
     return YES;
 }
 

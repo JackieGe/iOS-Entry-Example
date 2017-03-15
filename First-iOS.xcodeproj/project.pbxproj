@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C3BE6781E78CDBA00474B42 /* ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BE6771E78CDBA00474B42 /* ViewController3.m */; };
+		8C3BE67C1E78F1C900474B42 /* MyWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C3BE67A1E78F1C900474B42 /* MyWebViewController.m */; };
+		8C3BE67D1E78F1C900474B42 /* MyWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C3BE67B1E78F1C900474B42 /* MyWebViewController.xib */; };
 		8CAE6F111E6BA5DE00EBF0C5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE6F0F1E6BA5DE00EBF0C5 /* SecondViewController.m */; };
 		8CAE6F121E6BA5DE00EBF0C5 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CAE6F101E6BA5DE00EBF0C5 /* SecondViewController.xib */; };
 		8CAE6F1D1E6C0FE800EBF0C5 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAE6F1C1E6C0FE800EBF0C5 /* Calculator.swift */; };
@@ -22,6 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C3BE6761E78CDBA00474B42 /* ViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController3.h; sourceTree = "<group>"; };
+		8C3BE6771E78CDBA00474B42 /* ViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController3.m; sourceTree = "<group>"; };
+		8C3BE6791E78F1C900474B42 /* MyWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebViewController.h; sourceTree = "<group>"; };
+		8C3BE67A1E78F1C900474B42 /* MyWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWebViewController.m; sourceTree = "<group>"; };
+		8C3BE67B1E78F1C900474B42 /* MyWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyWebViewController.xib; sourceTree = "<group>"; };
 		8CAE6F0E1E6BA5DE00EBF0C5 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		8CAE6F0F1E6BA5DE00EBF0C5 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		8CAE6F101E6BA5DE00EBF0C5 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
@@ -91,6 +99,8 @@
 				8CAE6F0F1E6BA5DE00EBF0C5 /* SecondViewController.m */,
 				8CAE6F101E6BA5DE00EBF0C5 /* SecondViewController.xib */,
 				8CCC96AB1E6A7C6D0091DE6C /* Main.storyboard */,
+				8C3BE6761E78CDBA00474B42 /* ViewController3.h */,
+				8C3BE6771E78CDBA00474B42 /* ViewController3.m */,
 				8CCC96AE1E6A7C6D0091DE6C /* Assets.xcassets */,
 				8CCC96B01E6A7C6D0091DE6C /* LaunchScreen.storyboard */,
 				8CCC96B31E6A7C6D0091DE6C /* Info.plist */,
@@ -101,6 +111,9 @@
 				8CAE6F4D1E6C374700EBF0C5 /* Car+Contact.m */,
 				8CAE6F4F1E6C3E3C00EBF0C5 /* NSString+Other.h */,
 				8CAE6F501E6C3E3C00EBF0C5 /* NSString+Other.m */,
+				8C3BE6791E78F1C900474B42 /* MyWebViewController.h */,
+				8C3BE67A1E78F1C900474B42 /* MyWebViewController.m */,
+				8C3BE67B1E78F1C900474B42 /* MyWebViewController.xib */,
 			);
 			path = "First-iOS";
 			sourceTree = "<group>";
@@ -173,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C3BE67D1E78F1C900474B42 /* MyWebViewController.xib in Resources */,
 				8CAE6F121E6BA5DE00EBF0C5 /* SecondViewController.xib in Resources */,
 				8CCC96B21E6A7C6D0091DE6C /* LaunchScreen.storyboard in Resources */,
 				8CCC96AF1E6A7C6D0091DE6C /* Assets.xcassets in Resources */,
@@ -188,7 +202,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CAE6F511E6C3E3C00EBF0C5 /* NSString+Other.m in Sources */,
+				8C3BE67C1E78F1C900474B42 /* MyWebViewController.m in Sources */,
 				8CAE6F111E6BA5DE00EBF0C5 /* SecondViewController.m in Sources */,
+				8C3BE6781E78CDBA00474B42 /* ViewController3.m in Sources */,
 				8CCC96AA1E6A7C6D0091DE6C /* ViewController.m in Sources */,
 				8CAE6F1D1E6C0FE800EBF0C5 /* Calculator.swift in Sources */,
 				8CCC96A71E6A7C6D0091DE6C /* AppDelegate.m in Sources */,

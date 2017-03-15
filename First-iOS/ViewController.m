@@ -12,16 +12,26 @@
 #import "NSString+Other.h"
 
 
-@interface ViewController () <Runnable>
+@interface ViewController () <Runnable, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTime;
 @property (weak, nonatomic) IBOutlet UIButton *btnShowTime;
+@property (strong, nonatomic) UILabel *customLabel;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
 typedef void (^block_t) (void);
 
 @implementation ViewController
+@synthesize customLabel;
+
+#pragma mark --UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"Text field获得焦点，点击Return键");
+    [textField resignFirstResponder];
+    return YES;
+}
 
 - (void)runDistance:(double)meters {
     NSLog(@"run %lf meters", meters);
@@ -38,6 +48,63 @@ typedef void (^block_t) (void);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [_textField setFrame:CGRectMake(10, 500, 80, 25)];
+    _textField.placeholder = @"Please input your name";
+    // _textField.secureTextEntry = NO;
+    [_textField setBackgroundColor:[UIColor grayColor]];
+    [_textField setFont:[UIFont systemFontOfSize:25]];
+    [_textField setClearButtonMode:UITextFieldViewModeAlways];
+    [_textField setTextColor:[UIColor redColor]];
+    [_textField setBorderStyle:UITextBorderStyleRoundedRect];
+    _textField.layer.borderColor = [UIColor greenColor].CGColor;
+    _textField.layer.borderWidth = 2;
+    _textField.layer.cornerRadius = 5;
+    _textField.layer.masksToBounds = YES;
+    //_textField.keyboardType = UIKeyboardTypeNumberPad;
+    _textField.returnKeyType = UIReturnKeyGoogle;
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    CGFloat labelWidth = 90;
+    CGFloat labelHeight = 20;
+    CGFloat labelTopView = 50;
+    
+    customLabel = [[UILabel alloc] initWithFrame:CGRectMake((rect.size.width - labelWidth)/2, labelTopView, labelWidth, labelHeight)];
+    self.customLabel.text = @"label-text";
+    self.customLabel.textAlignment = NSTextAlignmentCenter;
+    self.customLabel.backgroundColor = [UIColor greenColor];
+    self.customLabel.textColor = [UIColor redColor];
+    [self.view addSubview:customLabel];
+    
+    CGFloat buttonWidth = 70;
+    CGFloat buttonHeight = 20;
+    CGFloat buttonTopView = 80;
+    
+    UIButton *button1 = [[UIButton alloc] initWithFrame:CGRectMake((rect.size.width - buttonWidth)/2, buttonTopView, buttonWidth, buttonHeight)];
+    [button1 setTitle:@"Click me" forState:UIControlStateNormal];
+    [button1 setTitle:@"Clicked" forState:UIControlStateHighlighted];
+    [button1 setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [button1 setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    format.dateFormat = @"HH:mm:ss";
+ 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil]; 
+
+    [self.view addSubview:button1];
+    __weak ViewController* weakSelf = self;
+   NSTimer* mytimer = [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer *timer) {
+        NSDate *date = [[NSDate alloc] init];
+        [weakSelf.customLabel setText:[format stringFromDate:date]];
+        
+    }];
+    
+    [[NSRunLoop currentRunLoop] addTimer:mytimer forMode:NSDefaultRunLoopMode];
+    
+    _textField.delegate = weakSelf;
+  
+    //[mytimer fire];
+    
     // self.view.backgroundColor = [UIColor yellowColor];
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -49,8 +116,22 @@ typedef void (^block_t) (void);
 }
 
 
+- (void)keyboardDidShow:(NSNotification *)notif {
+    NSLog(@"Keyboard open");
+}
+
+- (void)keyboardDidHide:(NSNotification *)notif {
+    NSLog(@"Keyboard hide");
+}
+
 
 - (IBAction)showTime:(id)sender {
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    format.dateFormat = @"HH:mm:ss";
+    NSDate *date = [NSDate new];
+    [customLabel setText:[format stringFromDate:date]];
+    [customLabel setNumberOfLines:3];
+    [customLabel setLineBreakMode:NSLineBreakByWordWrapping];
     
     NSURL *url = [NSURL URLWithString:@"www.baidu.com"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
